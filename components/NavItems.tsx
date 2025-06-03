@@ -14,14 +14,17 @@ const NavItems = () => {
 	const pathName = usePathname();
 
 	return (
-		<nav className='flex items-center gap-4'>
+		<nav className='flex max-sm:flex-col items-center gap-4'>
 			{navItems.map(({ label, href }) => (
-				<Link
-					href={href}
-					key={label}
-					className={cn(pathName === href && 'text primary font-semibold')}>
-					{label}
-				</Link>
+				<div
+					className='max-sm:border-b duration-100 md:hover:border-b max-sm:w-full max-sm:text-center'
+					key={label}>
+					<Link
+						href={href}
+						className={cn(pathName === href && 'text primary font-semibold')}>
+						{label}
+					</Link>
+				</div>
 			))}
 		</nav>
 	);
